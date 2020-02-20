@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Properties>
+        <Property name="basePath">C:\\Users\\PRATIK\\eclipse-workspace\\Notify\\logs</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="rollingfile" fileName="${basePath}/appinfo.log" filePattern="${basePath}/appinfo%i-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern> %d{yyyy-MM-dd HH:mm:ss.SSS}; [%t]; %msg %n</pattern>
+            </PatternLayout>
+            <Policies>
+            	<OnStartupTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20MB" />
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="trace">
+            <appender-ref ref="rollingfile"/>
+        </Root>
+    </Loggers>
+</Configuration>
